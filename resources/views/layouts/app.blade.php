@@ -13,19 +13,25 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    {{-- La navegación común permite alternar rápidamente entre emisor y receptor. --}}
+    {{-- La navegación adapta sus acciones al estado de autenticación. --}}
     <header class="border-b border-slate-200 bg-white">
-        <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
-            <a class="font-bold text-slate-900" href="{{ route('emisor') }}">WebSocket Demo</a>
-            <div class="flex gap-4">
-                <a class="enlace" href="{{ route('emisor') }}">Emisor</a>
-                <a class="enlace" href="{{ route('receptor') }}">Receptor</a>
-            </div>
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+            <a class="font-bold text-emerald-700" href="{{ auth()->check() ? route('chat.index') : route('login') }}">CorreoChat</a>
+
+            @auth
+                <div class="flex items-center gap-4">
+                    <span class="hidden text-sm text-slate-600 sm:inline">{{ auth()->user()->email }}</span>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="text-sm font-medium text-slate-600 hover:text-red-600" type="submit">Salir</button>
+                    </form>
+                </div>
+            @endauth
         </nav>
     </header>
 
     {{-- Cada vista aporta únicamente el contenido específico de su responsabilidad. --}}
-    <main class="contenedor">
+    <main class="@yield('main-class', 'contenedor')">
         @yield('content')
     </main>
 </body>

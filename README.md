@@ -4,6 +4,8 @@ Proyecto educativo construido con Laravel 12, Laravel Reverb y Laravel Echo.
 
 La versión base contiene dos pantallas: un **Emisor** que publica mensajes y un **Receptor** que los recibe en tiempo real mediante WebSocket, sin recargar la página.
 
+En la rama `desarrollo`, el ejemplo evoluciona a **CorreoChat** e incorpora registro, inicio de sesión, búsqueda por correo, conversaciones privadas, historial persistente y mensajes en tiempo real.
+
 ## Estrategia de ramas
 
 - `main`: versión básica y estable del ejemplo Emisor → Reverb → Receptor. Se conserva como punto de referencia para estudiar la implementación mínima.
@@ -28,6 +30,12 @@ npm.cmd run dev
 ```
 
 Después, abrir `/emisor` y `/receptor` desde la URL del servidor Laravel.
+
+En la rama `desarrollo`, ejecutar además las migraciones y abrir `/registro`:
+
+```powershell
+php artisan migrate
+```
 
 ---
 

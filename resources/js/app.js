@@ -1,5 +1,4 @@
 import './bootstrap';
 
-// Cada módulo se activa únicamente cuando encuentra su pantalla correspondiente.
-import './emisor';
-import './receptor';
+// El módulo se activa únicamente cuando encuentra la pantalla principal del chat.
+import './chat';
