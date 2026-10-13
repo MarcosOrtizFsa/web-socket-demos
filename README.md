@@ -1,3 +1,36 @@
+# Web Socket Demos
+
+Proyecto educativo construido con Laravel 12, Laravel Reverb y Laravel Echo.
+
+La versión base contiene dos pantallas: un **Emisor** que publica mensajes y un **Receptor** que los recibe en tiempo real mediante WebSocket, sin recargar la página.
+
+## Estrategia de ramas
+
+- `main`: versión básica y estable del ejemplo Emisor → Reverb → Receptor. Se conserva como punto de referencia para estudiar la implementación mínima.
+- `desarrollo`: rama activa donde se incorporarán las siguientes funcionalidades y mejoras del proyecto.
+
+El manual técnico paso a paso está disponible en [`docs/manual-websockets-laravel.md`](docs/manual-websockets-laravel.md).
+
+## Ejecución local
+
+Abrir tres terminales y ejecutar:
+
+```powershell
+php artisan serve
+```
+
+```powershell
+php artisan reverb:start
+```
+
+```powershell
+npm.cmd run dev
+```
+
+Después, abrir `/emisor` y `/receptor` desde la URL del servidor Laravel.
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
